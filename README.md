@@ -24,7 +24,7 @@ Follow these instructions to get the simulations running on your local machine.
 First, clone this repository to your computer:
 
 ```bash
-git clone <URL_OF_THIS_REPOSITORY>
+git clone git@github.com:adityapande-1995/physics-is-fun.git
 cd physics-is-fun
 ```
 
