@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Radio Sky · Bangalore</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+
+    <header>
+      <div id="title-block">
+        <h1>Radio Sky · Bangalore</h1>
+        <p class="subtitle">What glows above you — in radio wavelengths</p>
+      </div>
+      <div id="clock-block">
+        <span id="utc-time">—</span>
+        <span id="lst-display">LST —</span>
+      </div>
+    </header>
+
+    <main>
+
+      <!-- ── Left: sky map ─────────────────────────── -->
+      <section id="sky-panel">
+        <div id="canvas-wrap">
+          <canvas id="skyCanvas" width="600" height="600"></canvas>
+          <div id="haslam-status" class="status-badge loading">Loading 408 MHz map…</div>
+        </div>
+        <p class="map-note">
+          Azimuthal view · North up · East left · Centre = zenith · Edge = horizon
+        </p>
+      </section>
+
+      <!-- ── Right: sidebar ───────────────────────── -->
+      <aside id="sidebar">
+
+        <section class="card" id="layers-card">
+          <h2>Layers</h2>
+          <label class="toggle-row">
+            <input type="checkbox" class="layer-toggle" data-layer="haslam" checked>
+            <span class="dot" style="background:#ff6600"></span>
+            408 MHz continuum (Haslam)
+          </label>
+          <label class="toggle-row">
+            <input type="checkbox" class="layer-toggle" data-layer="galactic_plane" checked>
+            <span class="dot" style="background:#ffaa00"></span>
+            Galactic plane (b = 0°)
+          </label>
+          <label class="toggle-row">
+            <input type="checkbox" class="layer-toggle" data-layer="targets" checked>
+            <span class="dot" style="background:#aaaaff"></span>
+            Notable radio sources
+          </label>
+          <label class="toggle-row">
+            <input type="checkbox" class="layer-toggle" data-layer="stars" checked>
+            <span class="dot" style="background:#e8f0ff"></span>
+            Bright stars (optical anchors)
+          </label>
+          <label class="toggle-row">
+            <input type="checkbox" class="layer-toggle" data-layer="constellations" checked>
+            <span class="dot" style="background:#a0b9e6"></span>
+            Constellations
+          </label>
+          <label class="toggle-row">
+            <input type="checkbox" class="layer-toggle" data-layer="moon" checked>
+            <span class="dot" style="background:#dce8ff"></span>
+            Moon
+          </label>
+          <label class="toggle-row">
+            <input type="checkbox" class="layer-toggle" data-layer="grid" checked>
+            <span class="dot" style="background:#445566"></span>
+            Az/alt grid
+          </label>
+        </section>
+
+        <section class="card" id="visible-card">
+          <h2>Visible Right Now</h2>
+          <div id="target-list"><p class="muted">Loading…</p></div>
+        </section>
+
+        <section class="card" id="detail-card" style="display:none">
+          <div id="detail-panel"></div>
+        </section>
+
+        <section class="card" id="legend-card">
+          <h2>What are you looking at?</h2>
+          <p class="muted small">
+            The orange glow in the map is 408 MHz radio continuum — synchrotron radiation from
+            relativistic electrons spiralling in galactic magnetic fields. The bright ridge along
+            the galactic plane is the dusty, optically-invisible heart of the Milky Way.
+            Click any source to learn why it glows in radio but is hidden from your eyes.
+          </p>
+        </section>
+
+      </aside>
+    </main>
+
+  </div>
+
+  <div id="tooltip"></div>
+
+  <script src="sky.js"></script>
+</body>
+</html>

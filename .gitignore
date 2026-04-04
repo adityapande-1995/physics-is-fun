@@ -7,6 +7,9 @@ env/
 galaxy.jpg
 **/galaxy.jpg
 
+# Radio sky cached data (Haslam FITS map, etc.)
+radio_sky/data/
+
 # Python cache
 __pycache__/
 *.pyc
